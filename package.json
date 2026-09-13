@@ -1,5 +1,5 @@
 {
-  "name": "cohort6_e-commerce",
+  "name": "kongoo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,12 +13,13 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^6.0.0",
-    "cloudinary": "^2.10.0",
+    "cloudinary": "^2.11.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.6.2",
-    "multer": "^2.1.1"
+    "multer": "^2.3.0",
+    "multer-storage-cloudinary": "^4.0.0"
   }
 }
