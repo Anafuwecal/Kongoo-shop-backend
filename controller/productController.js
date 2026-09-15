@@ -6,12 +6,19 @@ export const createProduct = async (req, res) => {
         if (!productName || !price || !quantity || !category) {
             return res.status(400).json({ message: 'productName, price, quantity, and category are required' });
         }
-        
-        const productImage = req.file ? req.file.path : ''; 
+
+        const productImage = req.file ? req.file.path : (req.body.productImage || ''); 
 
         const product = await Product.create({
-            productName, description, price, productImage, quantity, category, userId: req.user.id 
+            productName, 
+            description, 
+            price, 
+            productImage, 
+            quantity, 
+            category, 
+            userId: req.user.id 
         });
+        
         return res.status(201).json({ message: 'Product created successfully', product });
     } catch (error) {
         return res.status(500).json({ message: error.message });

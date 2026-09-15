@@ -34,8 +34,8 @@ export const loginUser = async (req, res) => {
 
 export const registerUser = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
-        if (!name || !email || !password) {
+        const { name, email, password, storeName } = req.body;
+        if (!name || !email || !password || !storeName) {
             return res.status(400).json({ message: 'name, email, and password are required' });
         }
         const existingUser = await userModel.findOne({ email });
@@ -47,6 +47,7 @@ export const registerUser = async (req, res) => {
             name,
             email,
             password: hashedPassword,
+            storeName,
         });
         const { password: _, ...safeUser } = user.toObject();
         const token = generateToken(user._id);
